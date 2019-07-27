@@ -15,6 +15,6 @@ cd ..
 cd ..
 chown www-data:www-data wwwroot/ -R
 echo "creating data dir for mariadb at /data/db/mysql"
-mkdir -p mysql
+mkdir -p /data/db/mysql
 echo ""
 echo "now run docker-compose build"
