@@ -4,6 +4,7 @@ RUN apt-get update && apt-get install -y \
         libjpeg62-turbo-dev \
         libpng-dev \
         libzip-dev zip \
+    && docker-php-ext-install mysqli
     && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install -j$(nproc) iconv \
