@@ -15,6 +15,12 @@ mv inc/config.default.php inc/config.php
 chmod -R 755 cache uploads inc/settings.php inc/config.php
 cd ..
 cd ..
+echo "downloading and mybb language pack"
+mkdir tmp && cd tmp
+curl -L https://www.mybb.de/files/downloads/lang_deutsch_du_1821.tar.gz -o mybb_de.tar.gz
+tar -zxvf mybb_de.tar.gz
+mv Sprachdateien/*  /wwwroot/forum/inc/languages/
+cd .. && rm -rf tmp
 chown www-data:www-data wwwroot/ -R
 mv wwwroot /data/
 echo ""
