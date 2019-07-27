@@ -1,20 +1,20 @@
 version: '3'
-services: 
+services:
   web:
     image: nginx:latest
     ports:
         - "8080:80"
     volumes:
-        - ./code:/var/www/html
+        - ./eqdkp:/var/www/html
         - ./site.conf:/etc/nginx/conf.d/default.conf
     links:
         - php
   php:
     build:
-      context: ./php-fpm_PDO_MYSQL    
+      context: ./php-fpm_PDO_MYSQL
     image: php-pdomysql
     volumes:
-        - ./code:/var/www/html
+        - ./eqdkp:/var/www/html
   mysqldb:
     image: mariadb:10.4.6-bionic
     environment:
