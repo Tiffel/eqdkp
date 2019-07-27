@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "creating data dir for mariadb at /data/db/mysql"
+mkdir -p /data/db/mysql
 echo "downloading and unziping eqdkp"
 mkdir wwwroot && cd wwwroot
 curl -L https://eqdkp-plus.eu/repository/download/latestcore -o eqdkp.zip
@@ -10,11 +12,10 @@ unzip mybb.zip "Upload/*"
 mv Upload/* .
 rm -Rf Upload mybb.zip
 mv inc/config.default.php inc/config.php
-chmod -R 750 cache uploads inc/settings.php inc/config.php
+chmod -R 755 cache uploads inc/settings.php inc/config.php
 cd ..
 cd ..
 chown www-data:www-data wwwroot/ -R
-echo "creating data dir for mariadb at /data/db/mysql"
-mkdir -p /data/db/mysql
+mv wwwroot /data/
 echo ""
 echo "now run docker-compose build"

@@ -5,7 +5,7 @@ services:
     ports:
         - "8080:80"
     volumes:
-        - ./wwwroot:/var/www/html
+        - /data/wwwroot:/var/www/html
         - ./site.conf:/etc/nginx/conf.d/default.conf
     links:
         - php
